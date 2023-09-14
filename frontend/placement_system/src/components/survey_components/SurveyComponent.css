@@ -1,0 +1,103 @@
+.icon-button {
+    color: #000; /* Set the desired color (e.g., black) */
+    height: 20px;
+    width: 20px;
+
+  }
+.background-group{
+  @apply bg-gradient-to-b from-bg-start-color to-bg-end-color 
+}
+.border-group{
+  border-style: dashed;
+  --tw-border-opacity: 1;
+    border-color: rgb(245 158 11 / var(--tw-border-opacity));
+    border-radius: 2rem/* 6px */;
+    border-width: 5px;
+}
+.nameGroup{
+  @apply grid grid-cols-3 
+}
+.text-box{
+  @apply border-2 rounded-md shadow-sm -space-y-px
+}
+
+label{
+  @apply font-abc p-2
+}
+
+.dob_gender_Course_group{
+  @apply grid grid-cols-3
+}
+
+.duration_courseCompleted_Group{
+  @apply grid grid-cols-2  
+}
+h4{
+  @apply m-3 font-abc text-xl
+}
+.placedStatus_Companies_group{
+  @apply grid grid-cols-2  
+}
+
+
+/* Add these styles to your CSS file (e.g., SurveyComponent.css) */
+
+/* Error message styles */
+.error-message {
+  color: red;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+/* Tooltip icon styles */
+.fa-info-circle {
+  cursor: pointer;
+  font-size: 18px;
+  color: #007bff;
+  margin-left: 5px;
+}
+
+/* Tooltip message styles */
+.message {
+  font-size: 14px;
+  color: #dc3545;
+  margin-top: 5px;
+}
+
+/* Form input styles */
+.text-box {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Radio button styles */
+.custom-radio-button {
+  position: relative;
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  margin-right: 5px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+}
+
+.custom-radio-button::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 8px;
+  height: 8px;
+  background-color: #007bff;
+  border-radius: 50%;
+  display: none;
+}
+
+input[type="radio"]:checked + .custom-radio-button::after {
+  display: block;
+}
