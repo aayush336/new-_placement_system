@@ -8,38 +8,45 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @Table(name = "tbl_student")
+@Getter
+@Setter
 public class Student {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column
 	private int id;
-	@Column	private String name;
-	@Column private Date dob;
-	@Column private boolean passed;
-	@Column private String course;
-	@Column private Date course_start;
-	@Column	private Date course_end;
-	@Column private String gender;
-	@Column private boolean placed;
-	@Column private String email;
-	@Column private String company;
-	@Column private String interview_exp;
+	@Column(name="username")	private String name;
+	@Column(name="password") private String password;
+	@Column() private Date dob;
+	@Column(name="course_completed") private boolean passed;
+	@Column() private String course;
+	@Column() private Date course_start;
+	@Column()	private Date course_end;
+	@Column() private String gender;
+	@Column() private boolean placed;
+	@Column() private String email;
+	@Column() private String company;
+	@Column() private String interview_exp;
 	@Column private int work_exp;
-	@Column private float class10Score;
-	@Column private float class12Score;
-	@Column private float gradScore;
-	@Column private float postGradScore;
-	
-	public Student(int id, String name, Date dob, boolean passed, String course, Date course_start, Date course_end,
+	@Column() private float class10Score;
+	@Column() private float class12Score;
+	@Column() private float gradScore;
+	@Column() private float postGradScore;
+//	
+	public Student(int id, String name,String password, Date dob, boolean passed, String course, Date course_start, Date course_end,
 			String gender, boolean placed, String email, String company, String interview_exp, int work_exp,
 			float class10Score, float class12Score, float gradScore, float postGradScore) {
 		super();
 		this.id = id;
 		this.name = name;
+		this.password = password;
 		this.dob = dob;
 		this.passed = passed;
 		this.course = course;
@@ -56,7 +63,10 @@ public class Student {
 		this.gradScore = gradScore;
 		this.postGradScore = postGradScore;
 	}
-
+	
+	public String getPassword() {return password;}
+	public void setPassword(String password) {this.password = password;}
+	
 	public float getClass10Score() {
 		return class10Score;
 	}
@@ -203,7 +213,7 @@ public class Student {
 
 	@Override
 	public String toString() {
-		return "Student [id=" + id + ", name=" + name + ", dob=" + dob + ", passed=" + passed + ", course=" + course
+		return "Student [id=" + id + ", name=" + name + ", dob=" + dob+", password "+password + ", passed=" + passed + ", course=" + course
 				+ ", course_start=" + course_start + ", course_end=" + course_end + ", gender=" + gender
 				 + ", placed=" + placed + ", email=" + email + ", company="
 				+ company + ", interview_exp=" + interview_exp + ", work_exp=" + work_exp + "]";
