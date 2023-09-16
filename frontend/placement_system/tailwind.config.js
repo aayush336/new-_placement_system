@@ -7,7 +7,7 @@ module.exports = {
       colors:{
         'bg-start-color': '#2193b0',
         'bg-end-color': '#6dd5ed',
-        'bg-color-primary':'#F7F9F9',
+        'bg-color-primary':'#e0e0e0',
         'dark-brown':'#231D13',
         'dusk-brown':'#816749',
         'chocolate-brown':'#58422D',

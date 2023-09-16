@@ -5,6 +5,8 @@ import './App.css';
 import SurveyComponent from './components/survey_components/SurveyComponent';
 import DashboardComponent from './components/dashboard_components/DashboardComponents';
 import LoginComponent from './components/login_components/login';
+import SignUp from "./components/login_components/signUp";
+
 
 class App extends Component {
   render() {
@@ -14,6 +16,8 @@ class App extends Component {
           <Routes>
           <Route path="/" element={<LoginComponent/>} />
           <Route path="/dashboard" element={<DashboardComponent />} />
+          <Route path="/signUp" element={<SignUp/>}/>
+        
 
         </Routes>
         </Router>

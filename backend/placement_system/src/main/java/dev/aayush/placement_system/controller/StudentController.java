@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import dev.aayush.placement_system.model.Student;
 import dev.aayush.placement_system.payloads.ApiResponse;
+import dev.aayush.placement_system.payloads.LoginDto;
 import dev.aayush.placement_system.payloads.UserDto;
 import dev.aayush.placement_system.service.StudentService;
 
@@ -64,5 +65,14 @@ public class StudentController {
 	public ResponseEntity<UserDto> getAllStudents(@PathVariable Integer studentId){
 		return ResponseEntity.ok(this.studentService.getUserById(studentId));
 	}
+	
+	
+	//login mapping 
+	@PostMapping("/login")
+	public ResponseEntity<?> loginEmployee(@RequestBody LoginDto loginDTO)
+    {
+        ApiResponse response = studentService.loginStudent(loginDTO);
+        return ResponseEntity.ok(response);
+    }
 	
 }

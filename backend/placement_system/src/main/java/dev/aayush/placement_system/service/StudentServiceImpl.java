@@ -11,6 +11,9 @@ import org.springframework.stereotype.Service;
 import dev.aayush.placement_system.exception.*;
 import dev.aayush.placement_system.Dao.StudentDao;
 import dev.aayush.placement_system.model.Student;
+import dev.aayush.placement_system.payloads.ApiResponse;
+import dev.aayush.placement_system.payloads.LoginDto;
+import dev.aayush.placement_system.payloads.LoginMessage;
 import dev.aayush.placement_system.payloads.UserDto;
 import jakarta.transaction.Transactional;
 import lombok.Getter;
@@ -130,6 +133,24 @@ public class StudentServiceImpl implements StudentService {
 	    dto.setGradScore(st.getGradScore()); // Set graduation score
 	    dto.setPostGradScore(st.getPostGradScore()); // Set post-graduation score
 		return dto;			
+	}
+
+	@Override
+	public ApiResponse loginStudent(LoginDto loginDto) {
+		// TODO Auto-generated method stub
+		String msg="";
+		Student student = studentDao.findByEmail(loginDto.getEmail());
+		if (student != null) {
+            String password = loginDto.getPassword();
+            String storedPassword = student.getPassword(); // Assuming you store passwords as plain text for simplicity
+            if (password.equals(storedPassword)) { // Simple password comparison
+                return new ApiResponse("Login Success", true);
+            } else {
+                return new ApiResponse("Login Failed", false);
+            }
+        } else {
+            return new ApiResponse("Email not exists", false);
+        }
 	}
 	
 }
