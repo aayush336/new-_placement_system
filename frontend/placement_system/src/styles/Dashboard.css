@@ -1,0 +1,66 @@
+.dashboard {
+    
+    padding: 0px 30px;
+    padding-bottom: 50px;
+  }
+  
+  .single__card {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .single__card:nth-child(1) {
+    background: #e7717d;
+  }
+  
+  .single__card:nth-child(2) {
+    background: #5f940a;
+  }
+  
+  .single__card:nth-child(3) {
+    background: #58422D;
+  }
+  .single__card:hover {
+    transform: scale(1.05); /* Increase size on hover */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+    /* You can add other hover styles here */
+  }
+  
+  
+  .card__icon {
+    font-size: 2rem;
+    font-weight: 400 !important;
+  }
+  
+  .dashboard__cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 2rem;
+  }
+  
+  
+
+/* Card Container */
+.card-container {
+   /* Adjust the width as needed */
+  transition: transform 0.3s ease-in-out;
+  
+  cursor: pointer;
+  position: relative;
+}
+
+.card-container:hover {
+  transform: scale(1.2); /* Increase the scale for zoom effect */
+  padding: 20px;
+  transition: transform 0.3s ease-in-out;
+  z-index: 1; /* Bring the card to the foreground */
+}
+
+
+
+
+  

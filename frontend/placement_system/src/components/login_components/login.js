@@ -3,6 +3,7 @@ import loginImg from '../../assests/login_bg.jpg';
 import {useNavigate} from 'react-router-dom';
 import {  useState } from "react";
 import axios from 'axios';
+import Layout from '../layouts/layout';
 
 
 
@@ -11,6 +12,7 @@ function Login() {
     const [email,setEmail] = useState("");
     const [password,setPassword] = useState("");
     const navigate =useNavigate();
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
 
     function gotoSignUp(){
         navigate('/signUp');
@@ -25,10 +27,11 @@ function Login() {
             }).then((res)=>
             {
                 console.log(res.data);
-                if(res.data.message=="Email not exists"){
+                if(res.data.message==="Email not exists"){
                     alert("Email do not exists");
                 }
-                else if (res.data.message=="Login Success"){
+                else if (res.data.message==="Login Success"){
+                    setIsLoggedIn(true);
                     navigate('/dashboard');
                 }
                 else{
@@ -39,6 +42,9 @@ function Login() {
             alert(err);
         }
     }
+    if (isLoggedIn) {
+        return <Layout />;
+      }
 
   return (
     <div className='grid  grid-cols-2 sm:grid-cols2 h-screen w-full'>
